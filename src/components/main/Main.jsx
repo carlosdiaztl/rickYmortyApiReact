@@ -1,30 +1,37 @@
 import React from "react";
-import MainSection from "./MainSection";
 import '../../styles/style.scss'
-import fondo from '../../icons/fondoAvion.jpg'
-import SectionFooter from "../footer/SectionFooter";
+import { useState } from "react";
+import Ej from "../minisEX/Ej";
+import Ej2 from "../minisEX/Ej2";
+
 
 
 
 const Main=()=>{
+const [titulo , setTitulo] = useState( <> aqui un super mega diseño<div> <h1> con todos los juegutes</h1></div></>)
+
+   const  changetittle=(cambio)=>{
+    if (cambio==="si") { setTitulo(<> aqui un super mega diseño<div> <h1> sin todos los juegutes</h1><Ej/></div></>)
+        
+    }
+    else if(cambio==="no"){
+        setTitulo(<> aqui un super mega diseño<div> <h1> los juegutes</h1><Ej2/></div></>)
+
+    }
+    else{}
+   
+
+   }
     return(
         <>
         <main className="main">
-        <div>
-
-            <MainSection/>
-        </div>
-            <img className="main_img" src={fondo} alt="fondoavion" />
-            <div className="main_pagoseguro">
-            <h2 className="main_h21"> Pago seguro</h2>
-            <div className="main_divs">
-
-            <SectionFooter/> 
-            </div>
-            
-
-            </div>
+        <h1>{titulo} </h1>
+        <button onClick={()=>{changetittle('si')}}> cambiar titulo1</button>
+        <button onClick={()=>{changetittle('no')}}> cambiar titulo2</button>
+        
            
+           
+
         </main>
     
         </>
